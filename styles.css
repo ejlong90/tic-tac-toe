@@ -1,0 +1,17 @@
+/* Styling game board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 columns of 100px each*/
+    grid-template-rows: repeat(3, 100px); /* 3 rows of 100px each*/
+    gap: 5px; /* space between cells*/
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
