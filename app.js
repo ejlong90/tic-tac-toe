@@ -16,6 +16,6 @@ function checkWinner() { // funtion to check for winning combos
     [1, 4, 7], // column 2
     [2, 5, 8], // column 3
     [0, 4, 8], // diagnal 1
-    [2, 4, 6] // diagnal 2
+    [2, 4, 6], // diagnal 2
    ] 
 }
