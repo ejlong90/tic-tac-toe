@@ -1,5 +1,6 @@
 let board = ["", "", "", "", "", "", "", "", ""]; // 9 empty cells
 let currentPlayer = "X"; // X starts first
+let nextPlayer = "O"; // other player
 
 function displayBoard() {
     console.log(board[0], board[1], board [2]);
@@ -8,7 +9,7 @@ function displayBoard() {
 }
 
 function checkWinner() { // funtion to check for winning combos
-   const winningCominations = [ // define an array that will hold all winning combos
+   const winningCombinations = [ // define an array that will hold all winning combos
     [0, 1, 2], // row 1
     [3, 4, 5], // row 2
     [6, 7, 8], // row 3
@@ -17,5 +18,14 @@ function checkWinner() { // funtion to check for winning combos
     [2, 5, 8], // column 3
     [0, 4, 8], // diagnal 1
     [2, 4, 6], // diagnal 2
-   ] 
+   ];
+
+  for(const combinations of winningCominations) {
+    const [a, b, c] = combinations; // Destruction indices
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        return board[a]; // Return the winner (X or O)
+    }
+  }
+    return null; // No winner yet
+
 }
