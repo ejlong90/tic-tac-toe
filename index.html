@@ -10,7 +10,12 @@
 <body>
     <h3 class="gameintro">Have fun with friends or try to beat AI!</h3>
     <div class="player-dropdown">
-        <select name="Human" id="human">Human</select>
+        <p class="opponent-dropdown-text">Please choose an option for your opponent.</p>
+        <select name="Human" id="opponent">
+            <option value="opponent" class="opponent"></option>
+            <option value="opponent" class="opponent">Human</option>
+            <option value="opponent" class="opponent">AI</option>
+        </select> <!-- Need to figure out how to add option for human and computer -->
     </div>
     <!-- Game Board -->
     <div class="board"> <!-- container for game board -->
@@ -26,7 +31,7 @@
 
 
 
-        <div class="resetbutton"><button>Reset Game</button></div>
+        <div class="reset-button"><button>Reset Game</button></div>
 
 
     </div>

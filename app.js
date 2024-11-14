@@ -1,6 +1,18 @@
 let board = ["", "", "", "", "", "", "", "", ""]; // 9 empty cells
 let currentPlayer = "X"; // X starts first
 let nextPlayer = "O"; // other player
+let opponent = document.getElementById(select); // set opponent
+let resetButton = document.querySelector('button'); // resetting board 
+
+function myOpponent() { // dropdown of human or opponent option and once selected, starts game
+  
+}
+
+
+// Testing reset board function. Want the board to reset when this button is clicked
+resetButton.addEventListener("click",  )
+  console.log('Button was clicked')
+
 
 function displayBoard() {
     console.log(board[0], board[1], board [2]);
