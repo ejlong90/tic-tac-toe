@@ -1,18 +1,14 @@
 let board = ["", "", "", "", "", "", "", "", ""]; // 9 empty cells
 let currentPlayer = "X"; // X starts first
 let nextPlayer = "O"; // other player
-let opponent = document.getElementById(select); // set opponent
-let resetButton = document.querySelector('button'); // resetting board 
+const opponent = document.querySelector("#opponent"); // set opponent
+const result = document.querySelector(".result"); // players choice once opponent type is chosen
+//const resetButton = document.querySelector('button'); // resetting board 
 
-function myOpponent() { // dropdown of human or opponent option and once selected, starts game
-  
-}
-
-
-// Testing reset board function. Want the board to reset when this button is clicked
-resetButton.addEventListener("click",  )
-  console.log('Button was clicked')
-
+//Log the opponent when the dropdown changes
+opponent.addEventListener("change", (event) => {
+  result.textContent = `You selected ${event.target.value}`;
+});
 
 function displayBoard() {
     console.log(board[0], board[1], board [2]);
@@ -20,7 +16,13 @@ function displayBoard() {
     console.log(board[6], board[7], board [8]);
 }
 
-function checkWinner() { // funtion to check for winning combos
+//function to proceed with game after each turn
+function nextTurn() { 
+
+}
+
+// funtion to check for winning combos
+function checkWinner() {
    const winningCombinations = [ // define an array that will hold all winning combos
     [0, 1, 2], // row 1
     [3, 4, 5], // row 2
