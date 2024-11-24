@@ -8,12 +8,32 @@ const result = document.querySelector(".result"); // players choice once opponen
 //Log the opponent when the dropdown changes
 opponent.addEventListener("change", (event) => {
   result.textContent = `You selected ${event.target.value}`;
+  startGame();
 });
 
+// attempting to create a dynamic board in JS instead of HTML 
 function displayBoard() {
-    console.log(board[0], board[1], board [2]);
-    console.log(board[3], board[4], board [5]);
-    console.log(board[6], board[7], board [8]);
+  const boardContainer = document.querySelector(".board"); // Select the board container
+  boardContainer.innerHTML = ""; // Clear any existing cells
+
+  //Loop through the board array to create cells
+  board.forEach((cell, index) => {
+    const cellElement = document.createElement("div"); // Create a cell
+    cellElement.classList.add("cell"); // Add the "cell" class
+    cellElement.dataset.index = index; // Store the cell index as a data attribute
+    cellElement.textContent = cell; // Display the current value ("X". "O or "")
+    
+    //add a click event listener to handle moves 
+    cellElement.addEventListener("click", () => handledCellClick(index));
+
+    //Append the cell to the board container
+    boardContainer.appendChild(cellElement);
+  
+});
+
+function startGame() {
+  board = ["", "", "", "", "", "", "", "", ""]; // Reset board
+  displayBoard(); // Update the board display
 }
 
 //function to proceed with game after each turn
@@ -34,7 +54,7 @@ function checkWinner() {
     [2, 4, 6], // diagnal 2
    ];
 
-  for(const combinations of winningCominations) {
+  for(const combinations of winningCombinations) {
     const [a, b, c] = combinations; // Destruction indices
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         return board[a]; // Return the winner (X or O)
@@ -42,4 +62,5 @@ function checkWinner() {
   }
     return null; // No winner yet
 
+  }
 }
