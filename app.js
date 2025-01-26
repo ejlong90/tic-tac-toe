@@ -22,6 +22,22 @@ function displayBoard() {
     cellElement.classList.add("cell"); // Add the "cell" class
     cellElement.dataset.index = index; // Store the cell index as a data attribute
     cellElement.textContent = cell; // Display the current value ("X". "O or "")
+
+    // Add the hover effect (mouseenter)
+    cellElement.addEventListener("mouseenter", () => {
+      if (!cellElement.classList.contains("occupied")) { // will not add mark since cell is occupied
+        cellElement.textContent = currentPlayer; // Show the current players mark as a preview
+        cellElement.style.opacity = 0.5; 
+      }
+    });
+
+    // Remove the hover effect (mouseleave)
+    cellElement.addEventListener("mouseleave", () => {
+      if (!cellElement.classList.contains("occupied")) {
+        cellElement.textContent = ""; // Clear preview
+        cellElement.style.opacity = "1"; // Resets opacity
+      }
+    });
     
     //add a click event listener to handle moves 
     cellElement.addEventListener("click", () => handledCellClick(index));
@@ -63,4 +79,10 @@ function checkWinner() {
     return null; // No winner yet
 
   }
+}
+
+
+// function to reset game 
+function resetGame() {
+
 }
